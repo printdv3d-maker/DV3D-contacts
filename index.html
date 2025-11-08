@@ -1,54 +1,169 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DV3D - Contatti</title>
-    <style>
-        body {
-            background: radial-gradient(circle at center, #0a0f2c, #000);
-            color: white;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            padding-top: 80px;
-        }
-        img {
-            width: 350px;
-            margin-bottom: 30px;
-        }
-        h1 {
-            color: #00aaff;
-            margin-bottom: 40px;
-        }
-        .button {
-            display: inline-block;
-            background-color: #ff6600;
-            color: white;
-            padding: 15px 40px;
-            margin: 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 20px;
-            transition: 0.3s;
-        }
-        .button:hover {
-            background-color: #00aaff;
-        }
-        footer {
-            position: fixed;
-            bottom: 20px;
-            width: 100%;
-            font-size: 12px;
-            color: #aaa;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DV3D — Contatti</title>
+  <meta name="description" content="DV3D — Stampa 3D e prototipazione rapida. Contattaci su Instagram o via email."/>
+  <style>
+    :root{
+      --bg1: #05121a;
+      --bg2: #062733;
+      --accent: #00b4d8;      /* azzurro */
+      --accent-dark: #0aa8cc;
+      --orange: #ff8a00;
+      --card: #ff9400;
+      --glass: rgba(255,255,255,0.03);
+      --text: #e9f6fb;
+      --muted: rgba(233,246,251,0.75);
+      --max-width: 980px;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(circle at 50% 20%, rgba(0,120,140,0.08), transparent 15%),
+                  linear-gradient(180deg,var(--bg2) 0%,var(--bg1) 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      box-sizing:border-box;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+      text-align:center;
+    }
+
+    /* Logo area */
+    .hero{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:28px;
+      margin-bottom:28px;
+    }
+    .logo-wrap{
+      width:min(54vw, 520px);
+      max-width:520px;
+      aspect-ratio: 2/1; /* keeps area */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto;
+    }
+    .logo{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      filter: drop-shadow(0 14px 40px rgba(0,180,216,0.12));
+    }
+
+    /* Buttons card */
+    .card{
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      padding:14px 20px;
+      border-radius:12px;
+      font-weight:600;
+      text-decoration:none;
+      cursor:pointer;
+      border:0;
+      transition:transform .12s ease, box-shadow .12s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.28), inset 0 -2px 0 rgba(255,255,255,0.02);
+      color: #052028;
+    }
+
+    .btn:active{ transform:translateY(1px); }
+
+    .btn-email{
+      background: linear-gradient(180deg,var(--card), #ff8000);
+      padding-left:22px;
+      padding-right:22px;
+      color:#02110a;
+      display:inline-flex;
+      align-items:center;
+    }
+    .btn-ig{
+      background:transparent;
+      border: 1px solid rgba(255,255,255,0.06);
+      color:var(--text);
+      padding-left:18px;
+      padding-right:18px;
+      box-shadow:none;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn svg{width:20px;height:20px;flex:0 0 20px}
+
+    .hint{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:480px){
+      .logo-wrap{ width:80vw; max-width:360px; aspect-ratio: 1.8/1; }
+      .btn{ padding:12px 14px; gap:8px; border-radius:10px; font-size:0.95rem; }
+    }
+  </style>
 </head>
 <body>
-    <img src="logo_dv3d.png" alt="DV3D Logo">
-    <h1>DV3D</h1>
-    <a href="https://www.instagram.com/D.V_3D" class="button">Apri Instagram</a><br>
-    <a href="mailto:printdv3D@gmail.com" class="button">Invia Email</a>
-    <footer>© 2025 DV3D</footer>
+  <main class="container" role="main" aria-labelledby="pageTitle">
+    <header class="hero" aria-hidden="false">
+      <!-- logo.png deve essere nella stessa cartella del file index.html -->
+      <div class="logo-wrap" role="img" aria-label="Logo DV3D">
+        <img src="logo.png" alt="DV3D logo" class="logo" />
+      </div>
+    </header>
+
+    <section class="card" aria-label="Contatti rapidi">
+      <!-- Email -->
+      <a class="btn btn-email"
+         href="mailto:printdv3D@gmail.com"
+         title="Invia una email a printdv3D@gmail.com">
+        <!-- icona mail semplice -->
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6.5C3 5.67 3.67 5 4.5 5h15c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11z" fill="#00110a" opacity=".9"/>
+          <path d="M4.5 6.5l7.5 5 7.5-5" stroke="#02110a" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Scrivici via email</span>
+      </a>
+
+      <!-- Instagram -->
+      <a class="btn btn-ig"
+         href="https://instagram.com/D.V_3D"
+         target="_blank" rel="noopener noreferrer"
+         title="Apri la nostra pagina Instagram @D.V_3D">
+        <!-- icona ig -->
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.2" />
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.2" />
+          <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
+        </svg>
+        <span>Apri Instagram</span>
+      </a>
+    </section>
+
+    <p class="hint" id="pageTitle">DV3D — Stampa 3D e prototipazione rapida. Scegli come contattarci.</p>
+  </main>
 </body>
 </html>
