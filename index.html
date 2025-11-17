@@ -42,6 +42,7 @@
       max-width:var(--max-width);
       margin:0 auto;
       text-align:center;
+      position: relative; /* <<-- ADDED: rende la container il reference per i pulsanti assoluti */
     }
 
     /* Hero / logo */
@@ -79,9 +80,12 @@
       align-items:center;
       flex-wrap:wrap;
       margin-top:8px;
-      position:absolute;
+      position:absolute;      /* <<-- MODIFIED: posizione assoluta per sovrapporre sotto il logo */
+      left:50%;
+      top:48%;                /* posiziona verticalmente circa sotto il logo */
+      transform:translate(-50%, -8%); /* centra orizzontalmente e sposta leggermente in alto per "sovrapporre" */
       z-index:1200; /* assicura priorità click */
-      transform:translateY(-550%);
+      transition: top .18s ease, transform .18s ease;
     }
 
     a.btn{
@@ -138,7 +142,7 @@
     @media (max-width:540px){
       .logo-wrap{ width:84vw; max-width:420px; }
       .btn{ padding:12px 14px; gap:10px; border-radius:10px; font-size:0.96rem; }
-      .card{ gap:10px; padding:0 8px; }
+      .card{ gap:10px; padding:0 8px; left:50%; top:62%; transform:translate(-50%, -0%); } /* regola mobile: sposta i bottoni più in basso */
       .btn-email, .btn-ig { width: 100%; justify-content:center; }
     }
   </style>
@@ -202,7 +206,3 @@
   </script>
 </body>
 </html>
-</body>
-</html>
-#
-#
